@@ -44,9 +44,6 @@ call plug#begin('~/.vim/plugged')
 " Vim Fugitive plugin 
 Plug 'tpope/vim-fugitive'
 
-" YouCompleteMe plugin
-"Plug 'Valloric/YouCompleteMe'
-
 " Make your Vim/Neovim as smart as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -73,7 +70,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " This plugin adds Go language support for Vim, with many features
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Python code formatter
 Plug 'ambv/black'
@@ -88,7 +85,7 @@ Plug 'patstockwell/vim-monokai-tasty'
 Plug 'ap/vim-css-color'
 
 " Emmet Vim for HTML tags "
-Plug 'mattn/emmet-vim'
+"Plug 'mattn/emmet-vim'
 
 " Neo Dark theme " 
 Plug 'KeitaNakamura/neodark.vim'
@@ -100,6 +97,7 @@ filetype on
 
 " Set mapleader to space
 let mapleader = " "
+
 " Maps
 nmap <leader>hk :vsplit ~/.vim/hotkeys<cr>
 nmap <leader>gd <Plug>(coc-definition)
@@ -111,15 +109,18 @@ nmap <leader><leader>b :Black<cr>
 nmap <leader><leader>u :UndotreeToggle<cr>
 " Files (runs $FZF_DEFAULT_COMMAND if defined)
 nmap <leader><leader>f :Files<cr>
-nmap <leader><leader><leader>g :GoMetaLinter<cr>
+"nmap <leader><leader><leader>g :GoMetaLinter<cr>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader><leader>c :call nerdcommenter#Comment('x',"toggle")<CR>
 vnoremap <leader><leader>c :call nerdcommenter#Comment('x',"toggle")<CR>
-nnoremap <leader><Tab> :tabn<cr>
+"nnoremap <leader><Tab> :tabn<cr>
 nnoremap <leader><Tab><Tab> :tabp<cr>
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
 
 """"""""""""""""""""""""coc nvim settings start""""""""""""""""""""""""
 
+let g:coc_global_extensions = ['coc-tsserver']
 " Set internal encodging of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
